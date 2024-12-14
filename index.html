@@ -41,7 +41,7 @@
 
         }
 
-        button {
+        button
             border: 0;
             border-radius: 5px;
             margin-top: 50px;
@@ -64,11 +64,12 @@
 <body>
     <div>
         <h1 class="center">Напоминания</h1>
-        <button id="create">Создать</button>
-        <button id="history">История</button>
+        <button style="float: right">Создать</button>
+        <button style="float: left">История</button>
     </div>
-        <button id="stats">Статистика</button>
-
+    <div class="center">
+        <button>Статистика</button>
+    </div>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     <script>
         Telegram.WebApp.expand();
