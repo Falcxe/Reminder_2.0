@@ -17,6 +17,7 @@
             color: var(--tg-theme-text-color);
             background: var(--tg-theme-bg-color)
 
+
         }
 
         #main {
@@ -44,8 +45,8 @@
             border: 0;
             border-radius: 5px;
             margin-top: 50px;
-            height: 50px;
-            width: 100px;
+            height: 40px;
+            width: 120px;
             font-size: 20px;
             font-weight: 500;
             cursor: pointer;
@@ -54,7 +55,9 @@
             background: var(--tg-theme-button-text-color);
         }
 
-
+        button:hover {
+        background: var(--tg-theme-secondary-bg-color)
+        }
 
     </style>
 </head>
@@ -66,6 +69,10 @@
         <button id="stats">Статистика</button>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <script>
+        Telegram.WebApp.expand(); 
+        Telegram.WebApp.isFullscreen = true;
+    </script>
 
 </body>
 </html>
