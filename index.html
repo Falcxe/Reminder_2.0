@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Напоминания</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
         /* Сброс стилей */
         * {
@@ -17,7 +17,6 @@
         /* Основные стили */
         body {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 200;
             color: var(--tg-theme-text-color, #000);
             background-color: var(--tg-theme-bg-color, #fff);
             display: flex;
@@ -25,45 +24,57 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            padding: 20px;
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 500;
             color: var(--tg-theme-link-color, #0078d7);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
         .button-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
             gap: 15px;
             width: 100%;
-            padding: 0 20px;
+            max-width: 400px;
         }
 
         button {
             width: 100%;
-            max-width: 300px;
-            padding: 12px;
-            font-size: 18px;
+            padding: 14px;
+            font-size: 16px;
             font-weight: 500;
             color: var(--tg-theme-button-text-color, #fff);
             background-color: var(--tg-theme-button-color, #0078d7);
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #005bb5;
+            transition: background-color 0.2s, transform 0.1s;
         }
 
         button:active {
-            background-color: #003f8a;
+            background-color: rgba(0, 120, 215, 0.85); /* Полупрозрачный эффект при нажатии */
+            transform: scale(0.98); /* Лёгкий эффект нажатия */
+        }
+
+        button:hover {
+            background-color: var(--tg-theme-link-color, #005bb5);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 480px) {
+            .button-container {
+                gap: 12px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 12px;
+            }
         }
     </style>
 </head>
@@ -77,11 +88,11 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        // Инициализация Telegram WebApp
         document.addEventListener('DOMContentLoaded', () => {
             const tg = window.Telegram.WebApp;
 
-            tg.expand(); // Убедимся, что Web App отображается полноэкранно
+            // Разворачиваем Web App на весь экран
+            tg.expand();
         });
     </script>
 </body>
