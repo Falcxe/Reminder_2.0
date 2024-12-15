@@ -7,14 +7,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
-        /* Сброс стилей */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Основные стили */
         body {
             font-family: 'Montserrat', sans-serif;
             color: var(--tg-theme-text-color, #000);
@@ -28,11 +26,10 @@
         }
 
         h1 {
-            font-size: 30px;
-            font-weight: 560;
+            font-size: 22px;
+            font-weight: 500;
             color: var(--tg-theme-link-color, #0078d7);
-            margin-bottom: 40px;
-            text-align: center;
+            margin-bottom: 20px;
         }
 
         .button-container {
@@ -46,8 +43,8 @@
         button {
             width: 100%;
             padding: 14px;
-            font-size: 25px;
-            font-weight: 530;
+            font-size: 16px;
+            font-weight: 500;
             color: var(--tg-theme-button-text-color, #fff);
             background-color: var(--tg-theme-button-color, #0078d7);
             border: none;
@@ -57,24 +54,12 @@
         }
 
         button:active {
-            background-color: rgba(0, 120, 215, 0.85); /* Полупрозрачный эффект при нажатии */
-            transform: scale(0.98); /* Лёгкий эффект нажатия */
+            background-color: rgba(0, 120, 215, 0.85);
+            transform: scale(0.98);
         }
 
         button:hover {
             background-color: var(--tg-theme-link-color, #005bb5);
-        }
-
-        /* Адаптивность */
-        @media (max-width: 480px) {
-            .button-container {
-                gap: 12px;
-            }
-
-            button {
-                font-size: 14px;
-                padding: 12px;
-            }
         }
     </style>
 </head>
@@ -91,8 +76,11 @@
         document.addEventListener('DOMContentLoaded', () => {
             const tg = window.Telegram.WebApp;
 
-            // Разворачиваем Web App на весь экран
-            tg.expand();
+            // Проверяем и включаем полноэкранный режим
+            tg.isFullscreen = true;
+            tg.expand(); // Обеспечиваем корректное развертывание
+
+            console.log("Telegram Web App is running in fullscreen mode:", tg.isFullscreen);
         });
     </script>
 </body>
