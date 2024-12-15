@@ -24,18 +24,36 @@
             height: 100vh;
             padding: 20px;
         }
+        #statis {
+            display: none;
+            text-align: center;
+        }
+
+        #back {
+            display: none;
+            text-align: center;
+        }
 
         h1 {
             font-size: 22px;
+            font-weight: 550;
+            color: var(--tg-theme-link-color, #0078d7);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 15px;
             font-weight: 500;
             color: var(--tg-theme-link-color, #0078d7);
             margin-bottom: 20px;
         }
 
+
+
         .button-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 13px;
             width: 100%;
             max-width: 400px;
         }
@@ -44,7 +62,7 @@
             width: 100%;
             padding: 14px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 530;
             color: var(--tg-theme-button-text-color, #fff);
             background-color: var(--tg-theme-button-color, #0078d7);
             border: none;
@@ -62,26 +80,51 @@
             background-color: var(--tg-theme-link-color, #005bb5);
         }
     </style>
-</head>
+
+
 <body>
-    <h1>Напоминания</h1>
-    <div class="button-container">
-        <button>Создать</button>
-        <button>История</button>
-        <button>Статистика</button>
+
+    <div id="main">
+        <h1>Напоминания</h1>
+        <div class="button-container">
+            <button id="create">Создать</button>
+            <button id="history">История</button>
+            <button id="stats">Статистика</button>
+    </div>
+    </div>
+
+    <div id="statis">
+        <h1>Статистика</h1>
+        <h2>Всего: 5</h2>
+        <h2>Активных: 2</h2>
+        <h2>Прошедших: 3</h2>
+    </div>
+
+    <div>
+        <button id="back">Назад</button>
+
+
     </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tg = window.Telegram.WebApp;
+       let tg = window.Telegram.WebApp;
+       let stats = document.getElementById("stats");
+       let history = document.getElementById("history");
+       let create = document.getElementById("create");
+        stats.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("statis").style.display = "block";
+            document.getElementById("back").style.display = "block";
+        });
 
-            // Проверяем и включаем полноэкранный режим
-            tg.isFullscreen = true;
-            tg.expand(); // Обеспечиваем корректное развертывание
+        back.addEventListener("click", () => {
+            document.getElementById("main").style.display = "block";
+            document.getElementById("statis").style.display = "none";
+            document.getElementById("back").style.display = "none";
 
-            console.log("Telegram Web App is running in fullscreen mode:", tg.isFullscreen);
         });
     </script>
+
 </body>
 </html>
