@@ -99,12 +99,21 @@
     </div>
     </div>
 
+    <div id="histor">
+        <h1>История</h1>
+        <div>
+            <h2>1. Тест на 12:00</h2>
+            <h2>2. Тест2 на 13:00</h2>
+            <h2>3. Тест3 на 14:00</h2>
+        </div>
+    </div>
+
     <div id="statis">
         <h1>Статистика</h1>
         <div id="info">
-        <h2>Всего: 5</h2>
-        <h2>Активных: 2</h2>
-        <h2>Прошедших: 3</h2>
+            <h2>Всего: 5</h2>
+            <h2>Активных: 2</h2>
+            <h2>Прошедших: 3</h2>
         </div>
     </div>
 
@@ -126,10 +135,17 @@
             document.getElementById("back").style.display = "block";
         });
 
+        history.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("history").style.display = "none";
+            document.getElementById("back").style.display = "block";
+        });
+        
         back.addEventListener("click", () => {
-            document.getElementById("main").style.display = "block";
-            document.getElementById("statis").style.display = "none";
-            document.getElementById("back").style.display = "none";
+        document.getElementById("main").style.display = "block";
+        document.getElementById("history").style.display = "none";
+        document.getElementById("statis").style.display = "none";
+        document.getElementById("back").style.display = "none";
 
         });
     </script>
