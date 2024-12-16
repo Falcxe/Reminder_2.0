@@ -37,7 +37,13 @@
         #info {
             color: var(--tg-theme-text-color);
         }
+        #histor {
+            display: none;
+        }
 
+        #items {
+            color: var(--tg-theme-text-color);
+        }
 
         h1 {
             font-size: 30px;
@@ -101,7 +107,7 @@
 
     <div id="histor">
         <h1>История</h1>
-        <div>
+        <div id="items">
             <h2>1. Тест на 12:00</h2>
             <h2>2. Тест2 на 13:00</h2>
             <h2>3. Тест3 на 14:00</h2>
@@ -137,13 +143,14 @@
 
         history.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
-            document.getElementById("history").style.display = "none";
+            document.getElementById("histor").style.display = "block";
             document.getElementById("back").style.display = "block";
         });
-        
+
         back.addEventListener("click", () => {
         document.getElementById("main").style.display = "block";
-        document.getElementById("history").style.display = "none";
+        document.getElementById("history").style.display = "block";
+        document.getElementById("histor").style.display = "none";
         document.getElementById("statis").style.display = "none";
         document.getElementById("back").style.display = "none";
 
