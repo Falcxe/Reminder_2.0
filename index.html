@@ -44,6 +44,17 @@
         #items {
             color: var(--tg-theme-text-color);
         }
+        #creating {
+            display: none;
+        }
+
+        #form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+            color: var(--tg-theme-text-color);
+        }
 
         h1 {
             font-size: 30px;
@@ -60,7 +71,20 @@
             margin-bottom: 8px;
         }
 
+        input {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрирование полей ввода */
+            gap: 10px; /* Отступ между полями */
+            width: 100%;
+            outline: none;
+            margin: 10px 5%;
+            padding: 15px 10px;
+            font-size: 14px;
+            border: 2px solid silver;
+            border-radius: 12px
 
+        }
 
         .button-container {
             display: flex;
@@ -105,6 +129,17 @@
     </div>
     </div>
 
+
+    <div id="creating">
+        <h1>Создание</h1>
+        <form id="form">
+            <input type="text" placeholder="Имя" id="name_r">
+            <input type="text" placeholder="Время" id="time_r">
+        </form>
+        <button id="f_create">Создать</button>
+    </div>
+
+
     <div id="histor">
         <h1>История</h1>
         <div id="items">
@@ -114,6 +149,7 @@
         </div>
     </div>
 
+
     <div id="statis">
         <h1>Статистика</h1>
         <div id="info">
@@ -122,14 +158,11 @@
             <h2>Прошедших: 3</h2>
         </div>
     </div>
+    <button id="back">Назад</button>
 
-    <div>
-        <button id="back">Назад</button>
-
-
-    </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
     <script>
        let tg = window.Telegram.WebApp;
        let stats = document.getElementById("stats");
@@ -146,11 +179,18 @@
             document.getElementById("histor").style.display = "block";
             document.getElementById("back").style.display = "block";
         });
+        create.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("creating").style.display = "block";
+            document.getElementById("back").style.display = "block";
+        });
+
 
         back.addEventListener("click", () => {
         document.getElementById("main").style.display = "block";
         document.getElementById("history").style.display = "block";
         document.getElementById("histor").style.display = "none";
+        document.getElementById("creating").style.display = "none";
         document.getElementById("statis").style.display = "none";
         document.getElementById("back").style.display = "none";
 
